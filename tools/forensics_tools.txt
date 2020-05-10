@@ -1,1 +1,1 @@
-binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico
+binwalk bulk-extractor chntpw dc3dd ddrescue dumpzilla extundelete foremost galleta guymager p0f pdf-parser pdfid volatility xplico

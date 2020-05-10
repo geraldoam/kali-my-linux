@@ -1,1 +1,1 @@
-cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely
+cryptcat cymothoa dbd dns2tcp httptunnel nishang polenum powersploit pwnat ridenum sbd webshells weevely

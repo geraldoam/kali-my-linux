@@ -1,1 +1,1 @@
-apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy
+apache-users arachni cutycapt davtest dirb dirbuster funkload jboss-autopwn joomscan jsql padbuster paros parsero plecost recon-ng skipfish sqlmap sqlninja sqlsus uniscan w3af webscarab websploit wfuzz wpscan xsser zaproxy

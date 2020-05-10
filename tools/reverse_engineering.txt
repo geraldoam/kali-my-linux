@@ -1,1 +1,1 @@
-apktool dex2jar python-diStorm3 edb-debugger jad javasnoop JD OllyDbg smali Valgrind YARA
+apktool dex2jar edb-debugger javasnoop smali
