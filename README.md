@@ -42,7 +42,7 @@ ___
 - Copy this command and run on your terminal.
 
 ```shell
-git clone https://github.com/i386angel/kali-my-linux && cd kml/ && sudo chmod +x kml.sh
+git clone https://github.com/i386angel/kali-my-linux && cd kali-my-linux && sudo chmod +x kml.sh
 ```
 
 <br>
