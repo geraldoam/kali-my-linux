@@ -19,22 +19,22 @@ function detectionOS(){
 	do
 	    case $choice in
 	        1)
-	            userDistro=$"Debian"
+				userDistro=$"Debian"
 	            ;;
 	        2)
-	            userDistro=$"Debian"       
+				userDistro=$"Debian"       
 	            ;;
 	        3)
-	            userDistro=$"Debian"	
+				userDistro=$"Debian"	
 	            ;;
 	        4)
-	            userDistro=$"Debian"		
+				userDistro=$"Debian"		
 	            ;;
 	        5)
-				userDistro=$"Arch"
+				userDistro=$"Arch" 
 	            ;;
 	        6)
-	            userDistro=$"Arch"			
+				userDistro=$"Arch"			
 	            ;;  	                        	            
 	        *)
 				initialScript
@@ -62,6 +62,7 @@ function addRepository(){
 		dialog --msgbox "$alertMensage" 12 30
 
 		apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6
+		echo '# Kali Repository (kali-my-linux)' >> /etc/apt/sources.list
 		echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
 		apt-get update -m
 
@@ -111,61 +112,64 @@ function toolInstall(){
 			do
 			    case $choice in
 			        1)
-			            APPS=$(cat tools/info_gethering.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/info_gethering.txt)
 			            ;;
 			        2)
-			            APPS=$(cat tools/vul_analysis.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/vul_analysis.txt)
 			            ;;
 			        3)
-						APPS=$(cat tools/wireless_atack.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/wireless_atack.txt)
 			            ;;
 			        4)
-						APPS=$(cat tools/web.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/web.txt)
 			            ;;
 			        5)
-						APPS=$(cat tools/sniffing_and_spoofing.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/sniffing_and_spoofing.txt)
 			            ;;
 			        6)
-						APPS=$(cat tools/maintaining_acess.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/maintaining_acess.txt)
 			            ;;
 			        7)
-						APPS=$(cat tools/reporting_tools.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/reporting_tools.txt)
 			            ;;
 			        8)
-						APPS=$(cat tools/exploration_tools.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/exploration_tools.txt)
 			            ;;
 			        9)
-						APPS=$(cat tools/forensics_tools.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/forensics_tools.txt)
 			            ;;
 			        10)
-						APPS=$(cat tools/stress_testing.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/stress_testing.txt)
 			            ;;
 			        11)
-						APPS=$(cat tools/password_atacks.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/password_atacks.txt)
 			            ;;
 			        12)
-						APPS=$(cat tools/reverse_engineering.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/reverse_engineering.txt)
 			            ;;
 			        13)
-						APPS=$(cat tools/hardware_hacking.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/hardware_hacking.txt)
 			            ;;
 			        14)
-						APPS=$(cat tools/all.txt) && sudo apt-get install $APPS
+						APPS=$(cat tools/all.txt)
 			            ;;		            	            
 			        *)
 						initialScript
 						;;
 			    esac
 			done
+
+			sudo apt-get install $APPS
+			
 	else
 		for choice in $choices
 			do
 			    case $choice in
 			        1)
-			            APPS=$(cat tools/info_gethering.txt) && yay -S $APPS
+						APPS=$(cat tools/info_gethering.txt) && yay -S $APPS
 			            ;;
 			        2)
-			            APPS=$(cat tools/vul_analysis.txt) && yay -S $APPS
+						APPS=$(cat tools/vul_analysis.txt) && yay -S $APPS
 			            ;;
 			        3)
 						APPS=$(cat tools/wireless_atack.txt) && yay -S $APPS
@@ -207,8 +211,12 @@ function toolInstall(){
 						initialScript
 						;;
 			    esac
-			done			
+			done
+
+			yay -S $APPS	
+
 	fi
+
 }
 
 #######################################################
