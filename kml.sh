@@ -107,114 +107,61 @@ function toolInstall(){
 
 	choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
+for choice in $choices
+	do
+		case $choice in
+		1)
+			APPS=$(cat tools/info_gethering.txt)
+			;;
+		2)
+			APPS=$(cat tools/vul_analysis.txt)
+			;;
+		3)
+			APPS=$(cat tools/wireless_atack.txt)
+			;;
+		4)
+			APPS=$(cat tools/web.txt)
+			;;
+		5)
+			APPS=$(cat tools/sniffing_and_spoofing.txt)
+			;;
+		6)
+			APPS=$(cat tools/maintaining_acess.txt)
+			;;
+		7)
+			APPS=$(cat tools/reporting_tools.txt)
+			;;
+		8)
+			APPS=$(cat tools/exploration_tools.txt)
+			;;
+		9)
+			APPS=$(cat tools/forensics_tools.txt)
+			;;
+		10)
+			APPS=$(cat tools/stress_testing.txt)
+			;;
+		11)
+			APPS=$(cat tools/password_atacks.txt)
+			;;
+		12)
+			APPS=$(cat tools/reverse_engineering.txt)
+			;;
+		13)
+			APPS=$(cat tools/hardware_hacking.txt)
+			;;
+		14)
+			APPS=$(cat tools/all.txt)
+			;;		            	            
+		*)
+			initialScript
+			;;
+	esac
+done
+
 	if [[ "$userDistro" == "Debian" ]]; then
-		for choice in $choices
-			do
-			    case $choice in
-			        1)
-						APPS=$(cat tools/info_gethering.txt)
-			            ;;
-			        2)
-						APPS=$(cat tools/vul_analysis.txt)
-			            ;;
-			        3)
-						APPS=$(cat tools/wireless_atack.txt)
-			            ;;
-			        4)
-						APPS=$(cat tools/web.txt)
-			            ;;
-			        5)
-						APPS=$(cat tools/sniffing_and_spoofing.txt)
-			            ;;
-			        6)
-						APPS=$(cat tools/maintaining_acess.txt)
-			            ;;
-			        7)
-						APPS=$(cat tools/reporting_tools.txt)
-			            ;;
-			        8)
-						APPS=$(cat tools/exploration_tools.txt)
-			            ;;
-			        9)
-						APPS=$(cat tools/forensics_tools.txt)
-			            ;;
-			        10)
-						APPS=$(cat tools/stress_testing.txt)
-			            ;;
-			        11)
-						APPS=$(cat tools/password_atacks.txt)
-			            ;;
-			        12)
-						APPS=$(cat tools/reverse_engineering.txt)
-			            ;;
-			        13)
-						APPS=$(cat tools/hardware_hacking.txt)
-			            ;;
-			        14)
-						APPS=$(cat tools/all.txt)
-			            ;;		            	            
-			        *)
-						initialScript
-						;;
-			    esac
-			done
-
-			sudo apt-get install $APPS
-
+		sudo apt-get install $APPS
 	else
-		for choice in $choices
-			do
-			    case $choice in
-			        1)
-						APPS=$(cat tools/info_gethering.txt) && yay -S $APPS
-			            ;;
-			        2)
-						APPS=$(cat tools/vul_analysis.txt) && yay -S $APPS
-			            ;;
-			        3)
-						APPS=$(cat tools/wireless_atack.txt) && yay -S $APPS
-			            ;;
-			        4)
-						APPS=$(cat tools/web.txt) && yay -S $APPS
-			            ;;
-			        5)
-						APPS=$(cat tools/sniffing_and_spoofing.txt) && yay -S $APPS
-			            ;;
-			        6)
-						APPS=$(cat tools/maintaining_acess.txt) && yay -S $APPS
-			            ;;
-			        7)
-						APPS=$(cat tools/reporting_tools.txt) && yay -S $APPS
-			            ;;
-			        8)
-						APPS=$(cat tools/exploration_tools.txt) && yay -S $APPS
-			            ;;
-			        9)
-						APPS=$(cat tools/forensics_tools.txt) && yay -S $APPS
-			            ;;
-			        10)
-						APPS=$(cat tools/stress_testing.txt) && yay -S $APPS
-			            ;;
-			        11)
-						APPS=$(cat tools/password_atacks.txt) && yay -S $APPS
-			            ;;
-			        12)
-						APPS=$(cat tools/reverse_engineering.txt) && yay -S $APPS
-			            ;;
-			        13)
-						APPS=$(cat tools/hardware_hacking.txt) && yay -S $APPS
-			            ;;
-			        14)
-						APPS=$(cat tools/all.txt) && yay -S $APPS
-			            ;;		            	            
-			        *)
-						initialScript
-						;;
-			    esac
-			done
-
-			yay -S $APPS	
-
+		yay -S $APPS
 	fi
 
 }
