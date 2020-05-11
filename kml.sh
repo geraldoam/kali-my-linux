@@ -1,42 +1,8 @@
 #!/bin/bash
 
 #######################################################
-#	Functions
+#	Detect OS
 #######################################################
-
-function initialScript(){
-
-COLUMNS=$(tput cols) 
-title=$(echo -e "\e[1m\e[96m
-
-
-			 ██ ▄█▀    ███▄ ▄███▓    ██▓    
-			 ██▄█▒    ▓██▒▀█▀ ██▒   ▓██▒    
-			▓███▄░    ▓██    ▓██░   ▒██░    
-			▓██ █▄    ▒██    ▒██    ▒██░    
-			▒██▒ █▄   ▒██▒   ░██▒   ░██████▒
-			▒ ▒▒ ▓▒   ░ ▒░   ░  ░   ░ ▒░▓  ░
-			░ ░▒ ▒░   ░  ░      ░   ░ ░ ▒  ░
-			░ ░░ ░    ░      ░        ░ ░   
-			░  ░             ░          ░  ░
-			                                
-\e[39m")
-clear
-printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
-
-
-echo
-echo -e "    \e[36m[1]\e[39m Add repository."
-echo -e "    \e[36m[2]\e[39m Install tools."
-echo -e "    \e[36m[3]\e[39m Remove repository."
-echo -e "    \e[36m[4]\e[39m Exit."
-echo
-
-printf "\e[36m    > \e[39m"
-read OPTION
-return $OPTION
-}
-
 function detectionOS(){
 	cmd=(dialog --keep-tite --menu "Choose your OS:" 16 50 13)
 
@@ -54,27 +20,21 @@ function detectionOS(){
 	    case $choice in
 	        1)
 	            userDistro=$"Debian"
-	            
 	            ;;
 	        2)
-	            userDistro=$"Debian"
-	            	            
+	            userDistro=$"Debian"       
 	            ;;
 	        3)
-	            userDistro=$"Debian"
-	            				
+	            userDistro=$"Debian"	
 	            ;;
 	        4)
-	            userDistro=$"Debian"
-	            				
+	            userDistro=$"Debian"		
 	            ;;
 	        5)
 				userDistro=$"Arch"
-	            	
 	            ;;
 	        6)
-	            userDistro=$"Arch"
-	            					
+	            userDistro=$"Arch"			
 	            ;;  	                        	            
 	        *)
 				initialScript
@@ -84,43 +44,48 @@ function detectionOS(){
 	done	
 }
 
+#######################################################
+#	Add Repository
+#######################################################
 function addRepository(){
+	## Call detectionOS function
+	detectionOS
 
-## Call detectionOS function
-detectionOS
+	if [[ "$userDistro" == "Debian" ]]; then
+		clear
 
-if [[ "$userDistro" == "Debian" ]]; then
-	clear
+		alertMensage=$(echo -e "Alert:
 
-	alertMensage=$(echo -e "Alert:
+		Don't run apt-get upgrade after install. 
 
-	Don't run apt-get upgrade after install. 
+		Remove the repository after install tools.")
+		dialog --msgbox "$alertMensage" 12 30
 
-	Remove the repository after install tools.")
-	dialog --msgbox "$alertMensage" 12 30
+		apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6
+		echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
+		apt-get update -m
 
-	apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6
-	echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
-	apt-get update -m
+		echo
+		echo "Wait..."
+		sleep 5
+	else
+		clear
+		echo "You don't need to install repository, you will use AUR to get packages."
+		echo "Wait..."
+		sleep 5
+	fi
 
-	echo
-	echo "Wait..."
-	sleep 5
-else
-	clear
-	echo "You don't need to install repository, you will use AUR to get packages."
-	echo "Wait..."
-	sleep 5
-fi
-
-initialScript
-optionsMenu	
+	initialScript
+	optionsMenu	
 }
 
+#######################################################
+#	Menu Tool Install
+#######################################################
 function toolInstall(){
 
-## Call detectionOS function
-detectionOS
+	## Call detectionOS function
+	detectionOS
 
 	cmd=(dialog --keep-tite --menu "Choose one:" 21 50 13)
 
@@ -246,6 +211,9 @@ detectionOS
 	fi
 }
 
+#######################################################
+#	Removing Repository
+#######################################################
 function removeRepository(){
 	clear
 	sed -i '/kali/d' /etc/apt/sources.list && sed -i '/Kali/d' /etc/apt/sources.list
@@ -255,6 +223,45 @@ function removeRepository(){
 	exit
 }
 
+#######################################################
+#	Start Script
+#######################################################
+function initialScript(){
+
+COLUMNS=$(tput cols) 
+title=$(echo -e "\e[1m\e[96m
+
+
+			 ██ ▄█▀    ███▄ ▄███▓    ██▓    
+			 ██▄█▒    ▓██▒▀█▀ ██▒   ▓██▒    
+			▓███▄░    ▓██    ▓██░   ▒██░    
+			▓██ █▄    ▒██    ▒██    ▒██░    
+			▒██▒ █▄   ▒██▒   ░██▒   ░██████▒
+			▒ ▒▒ ▓▒   ░ ▒░   ░  ░   ░ ▒░▓  ░
+			░ ░▒ ▒░   ░  ░      ░   ░ ░ ▒  ░
+			░ ░░ ░    ░      ░        ░ ░   
+			░  ░             ░          ░  ░
+			                                
+\e[39m")
+clear
+printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+
+
+echo
+echo -e "    \e[36m[1]\e[39m Add repository."
+echo -e "    \e[36m[2]\e[39m Install tools."
+echo -e "    \e[36m[3]\e[39m Remove repository."
+echo -e "    \e[36m[4]\e[39m Exit."
+echo
+
+printf "\e[36m    > \e[39m"
+read OPTION
+return $OPTION
+}
+
+#######################################################
+#	Menu Script Select
+#######################################################
 function optionsMenu(){
 	case $OPTION in
 		1 )
@@ -299,8 +306,9 @@ function optionsMenu(){
 	esac
 }
 
+
 #######################################################
-#	Start
+#	Init
 #######################################################
 initialScript
 optionsMenu
