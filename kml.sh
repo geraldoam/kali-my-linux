@@ -16,31 +16,31 @@ function detectionOS(){
 	choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
 	for choice in $choices
-	do
-	    case $choice in
-	        1)
+		do
+			case $choice in
+			1)
 				userDistro=$"Debian"
-	            ;;
-	        2)
-				userDistro=$"Debian"       
-	            ;;
-	        3)
-				userDistro=$"Debian"	
-	            ;;
-	        4)
-				userDistro=$"Debian"		
-	            ;;
-	        5)
+				;;
+			2)
+				userDistro=$"Debian"
+				;;
+			3)
+				userDistro=$"Debian"
+				;;
+			4)
+				userDistro=$"Debian"
+				;;
+			5)
 				userDistro=$"Arch" 
-	            ;;
-	        6)
-				userDistro=$"Arch"			
-	            ;;  	                        	            
-	        *)
+				;;
+			6)
+				userDistro=$"Arch"
+				;;
+			*)
 				initialScript
 				optionsMenu
 				;;
-	    esac
+		esac
 	done	
 }
 
@@ -160,7 +160,7 @@ function toolInstall(){
 			done
 
 			sudo apt-get install $APPS
-			
+
 	else
 		for choice in $choices
 			do
