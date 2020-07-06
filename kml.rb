@@ -2,7 +2,7 @@
 
 require 'colorize'
 require 'tty-prompt'
-require 'json'
+require 'rubygems'
 
 def remove_repository
 
@@ -192,6 +192,16 @@ def inicial_menu
 	end
 	
 	options_menu(menu_choice)
+end
+
+begin
+	gem 'colorize'
+	gem 'tty-prompt'
+rescue Gem::LoadError
+	Gem.install('colorize')
+	Gem.install('tty-prompt')
+	gem 'colorize'
+	gem 'tty-prompt'
 end
 
 begin
