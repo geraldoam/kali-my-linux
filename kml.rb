@@ -123,12 +123,12 @@ def detection_os
 
 	detection_prompt = TTY::Prompt.new
 	os_choice = detection_prompt.select('Choose your based distribution:'.magenta) do |menu|
-					menu.choice 'Debian'.blue, 1
-					menu.choice 'Zorin OS'.blue, 2
-					menu.choice 'Linux Mint'.blue, 3
-					menu.choice 'Ubuntu'.blue, 4
-					menu.choice 'Manjaro'.blue, 5
-					menu.choice 'Arch Linux'.blue, 6
+					menu.choice 'Debian'.white, 1
+					menu.choice 'Zorin OS'.white, 2
+					menu.choice 'Linux Mint'.white, 3
+					menu.choice 'Ubuntu'.white, 4
+					menu.choice 'Manjaro'.white, 5
+					menu.choice 'Arch Linux'.white, 6
 	end
 	
 	if os_choice > 0 and os_choice <= 4
@@ -143,7 +143,7 @@ def detection_os
 end
 
 def options_menu(menu_choice)
-	case menuChoice
+	case menu_choice
 	when 1
 		detection_os()
 	when 2
@@ -160,6 +160,7 @@ def options_menu(menu_choice)
 end
 
 def inicial_menu
+	system("clear")
 	print "
 
 	██ ▄█▀    ███▄ ▄███▓    ██▓    
@@ -175,7 +176,7 @@ def inicial_menu
 	".cyan
 
 	inicial_prompt = TTY::Prompt.new
-	menu_choice = 	inicial_prompt.select("Kali my Linux | @i686leak\n".white) do |menu|
+	menu_choice = inicial_prompt.select("Kali my Linux | @i686leak\n".white) do |menu|
 						menu.choice 'Add Repository.'.cyan, 1
 						menu.choice 'Install tools.'.cyan, 2
 						menu.choice 'Remove Repository.'.cyan, 3
