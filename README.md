@@ -14,7 +14,7 @@ ___
 
 <br>
 
-<h4>You can run fro:</h4>
+<h4>You can run</h4>
  <ul>
   <li>Debian</li>
   <li>Ubuntu</li>
