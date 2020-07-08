@@ -14,20 +14,45 @@ ___
 
 <br>
 
-<h4>Requeriments</h4>
+<h4>You can run fro:</h4>
  <ul>
-  <li>Ruby</li>
-  <li>Linux (Debian or Arch)</li>
+  <li>Debian</li>
+  <li>Ubuntu</li>
+  <li>Zorin OS</li>
+  <li>Linux Mint</li>
+  <li>Arch Linux</li>
+  <li>Manjaro</li>
 </ul> 
+
+<br>
 
 <h4>Install</h4>
 
-```console
-$ git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux
+Copy and paste to terminal.
+
+```sh
+git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux && chmod +x kml.rb
 ```
+
+<b>Debian, Ubuntu, Zorin OS, Linux Mint...</b>
+
+```sh
+./install.sh -d
+```
+
+<b>Arch Linux and Manjaro.</b>
+
+```sh
+./install.sh -o
+```
+
+<br>
 
 <h4>Run</h4>
 
-```console
+```sh
 $ sudo ruby kml.rb
 ```
+
+<hr>
+
