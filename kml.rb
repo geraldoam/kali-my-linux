@@ -2,7 +2,6 @@
 
 require 'colorize'
 require 'tty-prompt'
-require 'rubygems'
 
 def remove_repository
 
@@ -26,20 +25,12 @@ def select_tools
 
 	def install_tools(type)
 
-		tools_all = File.read("tools/web.txt").split
-		tools_exploration = File.read("tools/exploration_tools.txt").split
-		tools_forensics = File.read("tools/forensics_tools.txt").split
-		tools_hardware = File.read("tools/hardware_hacking.txt").split
-		tools_infoget = File.read("tools/info_gethering.txt").split
-		tools_maintaining = File.read("tools/maintaining_acess.txt").split
-		tools_password = File.read("tools/password_atacks.txt").split
-		tools_reporting = File.read("tools/reporting_tools.txt").split
-		tools_reverse = File.read("tools/reverse_engineering.txt").split
-		tools_sniffing = File.read("tools/sniffing_and_spoofing.txt").split
-		tools_stress = File.read("tools/stress_testing.txt").split
-		tools_vul = File.read("tools/vul_analysis.txt").split
-		tools_web = File.read("tools/web.txt").split
-		tools_wireless = File.read("tools/wireless_atack.txt").split
+		myHash = {}
+
+		Dir.glob('tools/*.txt') do |nome_categoria|
+			categoria = File.basename(nome_categoria, '.txt')
+			myHash[categoria] = File.readlines(nome_categoria).map(&:chomp)
+		end
 	
 		def install_tools_command(type)
 			system("sudo apt-get install #{type.join}")
@@ -47,33 +38,33 @@ def select_tools
 	
 		case type
 		when 1
-			install_tools_command(tools_all)
+			install_tools_command(myHash["info_gethering"])
 		when 2
-			install_tools_command(tools_exploration)
+			install_tools_command(myHash["vul_analysis"])
 		when 3
-			install_tools_command(tools_forensics)
+			install_tools_command(myHash["wireless_atack"])
 		when 4
-			install_tools_command(tools_hardware)
+			install_tools_command(myHash["web"])
 		when 5
-			install_tools_command(tools_infoget)
+			install_tools_command(myHash["sniffing_and_spoofing"])
 		when 6
-			install_tools_command(tools_maintaining)
+			install_tools_command(myHash["maintaining_acess"])
 		when 7
-			install_tools_command(tools_password)
+			install_tools_command(myHash["reporting_tools"])
 		when 8
-			install_tools_command(tools_reporting)
+			install_tools_command(myHash["exploration_tools"])
 		when 9
-			install_tools_command(tools_reverse)
+			install_tools_command(myHash["forensics_tools"])
 		when 10
-			install_tools_command(tools_sniffing)
+			install_tools_command(myHash["stress_testing"])
 		when 11
-			install_tools_command(tools_stress)
+			install_tools_command(myHash["password_atacks"])
 		when 12
-			install_tools_command(tools_vul)
+			install_tools_command(myHash["reverse_engineering"])
 		when 13
-			install_tools_command(tools_web)
+			install_tools_command(myHash["hardware_hacking"])
 		when 14
-			install_tools_command(tools_wireless)
+			install_tools_command(myHash["all"])
 		else
 			system("clear")
 			puts "Invalid argument. Try again!"
@@ -192,16 +183,6 @@ def inicial_menu
 	end
 	
 	options_menu(menu_choice)
-end
-
-begin
-	gem 'colorize'
-	gem 'tty-prompt'
-rescue Gem::LoadError
-	Gem.install('colorize')
-	Gem.install('tty-prompt')
-	gem 'colorize'
-	gem 'tty-prompt'
 end
 
 begin
