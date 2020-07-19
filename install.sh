@@ -10,7 +10,7 @@ usage() {
 while getopts "d;o;h" VALUE; do
   case "${VALUE}" in
     d) sudo apt-get install ruby gem && gem install colorize tty-prompt ;; 
-    o) sudo pacman -S ruby gem && gem install colorize tty-prompt ;;
+    o) sudo pacman -S ruby rubygems ruby-rdoc && gem install colorize tty-prompt ;;
     h) usage ;;
   esac
 done
