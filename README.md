@@ -14,11 +14,19 @@ ___
 
 <br>
 
-<h4>You can run</h4>
+<h4>Alert:</h4>
+
+Before to <b>install tools</b>, first <b>install repository</b>.
+In most cases you need to indicate your <b>distribution</b>.
+
+
+<br>
+
+<h4>You can run on:</h4>
  <ul>
   <li>Debian</li>
   <li>Ubuntu</li>
-  <li>Zorin OS</li>
+  <li>Zorin</li>
   <li>Linux Mint</li>
   <li>Arch Linux</li>
   <li>Manjaro</li>
@@ -26,32 +34,54 @@ ___
 
 <br>
 
-<h4>Install</h4>
+<h4>Install & Run</h4>
 
 Copy and paste to terminal.
 
 ```sh
-git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux && chmod +x kml.rb
+git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux && chmod +x kml.rb && sudo mv kml.rb /usr/bin/kml
 ```
 
-<b>Debian, Ubuntu, Zorin OS, Linux Mint...</b>
-
 ```sh
-./install.sh -d
-```
-
-<b>Arch Linux and Manjaro.</b>
-
-```sh
-./install.sh -o
+kml -h
 ```
 
 <br>
 
-<h4>Run</h4>
+<h4>Using</h4>
 
 ```sh
-$ sudo ruby kml.rb
+kml -h
+```
+
+<img src="https://user-images.githubusercontent.com/41551840/88863880-493c8480-d1da-11ea-8d66-9a65f9eea8f4.png">
+
+<br>
+
+<h4>Examples</h4>
+
+Install repository to Debian.
+
+```sh
+kml -d Debian -i
+```
+
+Remove repository from Debian.
+
+```sh
+kml -d Debian -u
+```
+
+Install all tools to Mint.
+
+```sh
+kml -d Mint -t all
+```
+
+Install web tools to Manjaro.
+
+```sh
+kml -d Manjaro -t web
 ```
 
 <hr>
