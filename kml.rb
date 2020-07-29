@@ -16,7 +16,7 @@ end
 def parser_uninstall
     def distro_uninstall
         def debian_based
-            system("clear && sed -i '/kali/d' /etc/apt/sources.list && sed -i '/Kali/d' /etc/apt/sources.list"); p("Removed.")
+            system("sudo clear && sed -i '/kali/d' /etc/apt/sources.list && sed -i '/Kali/d' /etc/apt/sources.list"); p("Removed.")
         end
         def arch_based
             print "You don't need to remove repository."
@@ -29,7 +29,7 @@ end
 def parser_install
     def distro_install
         def debian_based
-            system("apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6 && echo '# Kali Repository (kali-my-linux)' >> /etc/apt/sources.list && echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && apt-get update -m")
+            system("sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6 && echo '# Kali Repository (kali-my-linux)' >> /etc/apt/sources.list && echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && apt-get update -m")
         end
         def arch_based
             print "You don't need to install repository. You'll use AUR. (yay)"
