@@ -50,7 +50,7 @@ def parser_install_tools(category)
             categoria = File.basename(nome_categoria, '.txt')
             myHash[categoria] = File.readlines(nome_categoria).map(&:chomp)
         end
-        $user_distribution.include?(@debian_based_distros.to_s) ? system("sudo apt-get install #{myHash[category].join}") : system("sudo pacaman -S #{myHash[category].join}")
+        $user_distribution.include?(@debian_based_distros.to_s) ? system("sudo apt-get install #{myHash[category].join}") : system("sudo pacman -S #{myHash[category].join}")
     end
     @avaible_distro.include?($user_distribution) ? category_install_tools(category) : puts("Inavaible distribution, try again.\nTry: kml --help.")
 end
