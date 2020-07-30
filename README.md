@@ -39,11 +39,11 @@ ___
 Copy and paste to terminal.
 
 ```sh
-git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux && chmod +x kml.rb && sudo mv kml.rb /usr/bin/kml
+git clone https://github.com/i686leak/kali-my-linux && cd kali-my-linux && chmod +x kml.rb
 ```
 
 ```sh
-kml -h
+ruby kml.rb -h
 ```
 
 <br>
@@ -51,7 +51,7 @@ kml -h
 <h4>Using</h4>
 
 ```sh
-kml -h
+ruby kml.rb -h
 ```
 
 <img src="https://user-images.githubusercontent.com/41551840/88863880-493c8480-d1da-11ea-8d66-9a65f9eea8f4.png">
@@ -63,25 +63,25 @@ kml -h
 Install repository to Debian.
 
 ```sh
-kml -d Debian -i
+ruby kml.rb -d Debian -i
 ```
 
 Remove repository from Debian.
 
 ```sh
-kml -d Debian -u
+ruby kml.rb -d Debian -u
 ```
 
 Install all tools to Mint.
 
 ```sh
-kml -d Mint -t all
+ruby kml.rb -d Mint -t all
 ```
 
 Install web tools to Manjaro.
 
 ```sh
-kml -d Manjaro -t web
+ruby kml.rb -d Manjaro -t web
 ```
 
 <hr>
