@@ -16,8 +16,8 @@ ___
 
 <h4>Alert:</h4>
 
-Before to <b>install tools</b>, first <b>install repository</b>.
-In most cases you need to indicate your <b>distribution</b>.
+<p>Before to <b>install tools</b>, first <b>install repository</b>.</p>
+<p>In most cases you need to indicate your <b>distribution</b>.</p>
 
 
 <br>
