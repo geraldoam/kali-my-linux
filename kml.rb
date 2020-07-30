@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 require 'optparse'
 
 @debian_based_distros = ['Debian', 'Ubuntu', 'Zorin', 'Mint']
