@@ -4,6 +4,25 @@ require 'optparse'
 @arch_based_distros = ['Arch', 'Manjaro']
 @avaible_distro = @debian_based_distros + @arch_based_distros
 
+def banner()
+    system('clear')
+    puts("
+
+
+        ██ ▄█▀    ███▄ ▄███▓    ██▓    
+        ██▄█▒    ▓██▒▀█▀ ██▒   ▓██▒    
+       ▓███▄░    ▓██    ▓██░   ▒██░    
+       ▓██ █▄    ▒██    ▒██    ▒██░    
+       ▒██▒ █▄   ▒██▒   ░██▒   ░██████▒
+       ▒ ▒▒ ▓▒   ░ ▒░   ░  ░   ░ ▒░▓  ░
+       ░ ░▒ ▒░   ░  ░      ░   ░ ░ ▒  ░
+       ░ ░░ ░    ░      ░        ░ ░   
+       ░  ░             ░          ░  ░                                     
+       
+    ")
+    puts "github: gerald0x01\n".center(60)
+end
+
 def parser_distro(distro)
     @avaible_distro.include?(distro) ? p : puts("Inavaible distribution, try again.\nTry: kml --help."); return distro
 end
@@ -54,7 +73,7 @@ def parser_install_tools(category)
     @avaible_distro.include?($user_distribution) ? category_install_tools(category) : puts("Inavaible distribution, try again.\nTry: kml --help.")
 end
 
-OptionParser.new do |parser|
+OptionParser.new do |category|
     parser.separator("\nDistribution:")
     parser.on('-d [DISTRIBUTION]', '--dist [DISTRIBUTION]', 'Select your distribution.') {|distro| $user_distribution = parser_distro(distro)}
     parser.on('-s', '--show-dists', 'Show avaible distros.') {parser_distro_avaibles()}
