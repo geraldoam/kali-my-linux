@@ -3,7 +3,7 @@ require 'json'
 
 def banner()
     system('clear')
-    puts("
+    puts("\e[36m
 
 
         ██ ▄█▀    ███▄ ▄███▓    ██▓    
@@ -17,7 +17,7 @@ def banner()
         ░  ░             ░          ░  ░                                     
         
     ")
-    puts "github: gerald0x01\n".center(50)
+    puts "\e[39mgithub: gerald0x01\n".center(50)
 end
 
 def select_option()
