@@ -23,16 +23,19 @@ echo "\e[36m[2]\e[0m Arch Linux, Manjaro.\n"
 printf "\e[36m> \e[39m"
 read USER_DISTRIBUTION
 
-if [[ $USER_DISTRIBUTION == 1 ]]; then
+if [ $USER_DISTRIBUTION = 1 ]; then
 	sudo apt-get install ruby
-      sudo mv kml /opt/
+      sudo cp kml /opt/
       sudo ln -sf /opt/kml/kml.rb /usr/bin/kml
+      kml
 else
+      YAY_VERIFY=$(pacman -Qi yay)
       sudo pacman -S ruby
-      if [ pacman -Qi yay == 0]; then
+      if [ $YAY_VERIFY -eq 0 ]; then
             sudo pacman -S git
             git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
             sudo mv kml /opt/
             sudo ln -sf /opt/kml/kml.rb /usr/bin/kml
+            kml
       fi
 fi
