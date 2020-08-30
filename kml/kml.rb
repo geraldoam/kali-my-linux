@@ -22,7 +22,7 @@ end
 
 def select_option()
     banner()
-    category_options = ["\e[36m[1]\e[39m Install repository.", "\e[36m[2]\e[39m Install tools.", "\e[36m[3]\e[39m Remove repository.", "\e[36m[4]\e[39m Exit.\n"]
+    category_options = ["\e[36m[1]\e[39m Install repository.", "\e[36m[2]\e[39m Install tools.", "\e[36m[3]\e[39m Remove repository."]
     category_options.map {|option| puts option}
     print "\n\e[36m>\e[39m "; @user_option = gets; return @user_option.to_i
 end
@@ -47,13 +47,13 @@ def install(using_distro)
 end
 
 def tools(using_distro)
-    def category_install_tools(category, using_distro)
+    def category_install_tools(using_category, using_distro)
         myHash = {}
-        Dir.glob('tools/*.txt') do |category_name|
+        Dir.glob('./tools/*.txt') do |category_name|
             category = File.basename(category_name, '.txt')
             myHash[category] = File.readlines(category_name).map(&:chomp)
         end
-        using_distro == 'debian_based' ? system("sudo apt-get install #{myHash[category].join}") : system("yay -S #{myHash[category].join}")
+        using_distro == 'debian_based' ? system("sudo apt-get install #{myHash[using_category]}") : system("yay -S #{myHash[using_category]}")
     end
 
     banner()
@@ -121,7 +121,6 @@ def verification(option, distro)
         when 1 then install(using_distro)
         when 2 then tools(using_distro)
         when 3 then uninstall(using_distro)
-        when 4 then exit
         end
     end
 
@@ -133,7 +132,7 @@ def verification(option, distro)
         puts "Wrong option. Type the number."
     end
 
-    [1, 2, 3, 4].include?(option) ? actual_user_option(option, using_distro) : puts("Wrong option. Type the number.")
+    [1, 2, 3].include?(option) ? actual_user_option(option, using_distro) : exit
 end
 
 def main()
