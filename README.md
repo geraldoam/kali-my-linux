@@ -35,7 +35,7 @@ git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chm
 For Ubuntu.
 
 ```sh
-git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install.sh && sh install-ubuntu.sh
+git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install-ubuntu.sh && sh install-ubuntu.sh
 ```
 
 <hr>
