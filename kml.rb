@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/bin/ruby
 require 'json'
 
 def banner()
