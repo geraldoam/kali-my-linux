@@ -15,8 +15,7 @@ ___
 <h4>Running:</h4>
  <ul>
   <li>Debian</li>
-  <li>Zorin</li>
-  <li>Linux Mint</li>
+  <li>Linux Mint (Debian)</li>
   <li>Arch Linux</li>
   <li>Manjaro</li>
 </ul>
