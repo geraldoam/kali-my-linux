@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-printf "\e[36m
+echo "\e[36m
 
 
 
@@ -16,14 +16,9 @@ printf "\e[36m
         
               \e[0mgithub: gerald0x01
 "
-
-printf "\e[0mPlease, select your distribution to install script. Put the \e[1mnumber\e[0m."
-echo && echo
-printf "\e[36m[1]\e[0m Debian, Ubuntu, Linux Mint, Zorin OS."
-echo 
-printf "\e[36m[2]\e[0m Arch Linux, Manjaro."
-echo
-printf "\e[36m> \e[39m"
+echo "\e[0mPlease, select your distribution to install script. Put the \e[1mnumber\e[0m."
+echo "\e[36m[1]\e[0m Debian, Ubuntu, Linux Mint, Zorin OS."
+echo "\e[36m[2]\e[0m Arch Linux, Manjaro."
 read USER_DISTRIBUTION
 
 if [ $USER_DISTRIBUTION = 1 ]; then
