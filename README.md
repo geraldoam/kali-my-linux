@@ -56,12 +56,6 @@ ruby kml.rb
 
 <hr>
 
-<h4>Install Script</h4>
-
-<img src="https://user-images.githubusercontent.com/41551840/91669183-74700780-eae9-11ea-9356-b0566eca6d6e.png">
-
-<hr>
-
 <h4>Install Repository</h4>
 
 <img src="https://user-images.githubusercontent.com/41551840/91669221-b5681c00-eae9-11ea-9d25-4b69842bac66.png">
