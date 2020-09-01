@@ -53,7 +53,7 @@ def tools(using_distro)
             category = File.basename(category_name, '.txt')
             myHash[category] = File.readlines(category_name).map(&:chomp)
         end
-        using_distro == 'debian_based' ? system("sudo apt-get install #{myHash[using_category]}") : system("yay -S #{myHash[using_category]}")
+        using_distro == 'debian_based' ? system("sudo apt-get install -f #{myHash[using_category]}") : system("yay -S #{myHash[using_category]}")
     end
 
     banner()
