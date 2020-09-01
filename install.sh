@@ -17,7 +17,7 @@ echo "\e[36m
               \e[0mgithub: gerald0x01
 "
 echo "\e[0mPlease, select your distribution to install script. Put the \e[1mnumber\e[0m."
-echo "\e[36m[1]\e[0m Debian, Ubuntu, Linux Mint, Zorin OS."
+echo "\e[36m[1]\e[0m Debian, Linux Mint, Zorin OS."
 echo "\e[36m[2]\e[0m Arch Linux, Manjaro."
 read DISTRO
 if [ $DISTRO = 1 ]; then

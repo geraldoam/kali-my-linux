@@ -15,7 +15,6 @@ ___
 <h4>Running:</h4>
  <ul>
   <li>Debian</li>
-  <li>Ubuntu</li>
   <li>Zorin</li>
   <li>Linux Mint</li>
   <li>Arch Linux</li>
@@ -26,16 +25,9 @@ ___
 
 <h4>Download and Run</h4>
 
-All distros.
 
 ```sh
 git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install.sh && sh install.sh
-```
-
-For Ubuntu.
-
-```sh
-git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install-ubuntu.sh && sh install-ubuntu.sh
 ```
 
 <hr>
