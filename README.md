@@ -51,7 +51,7 @@ git clone https://aur.archlinux.org/yay.git && sudo chown $USER -R yay/ && cd ya
 <h4>Run</h4>
 
 ```sh
-./kml.rb
+ruby kml.rb
 ```
 
 <hr>
