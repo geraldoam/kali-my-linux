@@ -26,10 +26,16 @@ ___
 
 <h4>Download and Run</h4>
 
-Copy and paste to terminal.
+All distros.
 
 ```sh
 git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install.sh && sh install.sh
+```
+
+For Ubuntu.
+
+```sh
+git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install.sh && sh install-ubuntu.sh
 ```
 
 <hr>
