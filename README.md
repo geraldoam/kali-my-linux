@@ -22,11 +22,34 @@ ___
 
 <br>
 
-<h4>Download and Run</h4>
+<h4>Download</h4>
 
+<b>Debian, Ubuntu, Linux Mint...</b>
 
 ```sh
-git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && chmod +x install.sh && sh install.sh
+git clone https://github.com/gerald0x01/kali-my-linux; cd kali-my-linux; sudo apt-get install ruby; sudo chmod +x kml.rb
+```
+
+<br>
+
+<b>Arch Linux, Manjaro...</b>
+
+```sh
+git clone https://github.com/gerald0x01/kali-my-linux; cd kali-my-linux; sudo pacman -S ruby; sudo chmod +x kml.rb
+```
+
+```sh
+# If you don't have yay installed.
+git clone https://aur.archlinux.org/yay.git && sudo chown $USER -R yay/ && cd yay && makepkg -si
+```
+
+
+<hr>
+
+<h4>Run</h4>
+
+```sh
+./kml.rb
 ```
 
 <hr>

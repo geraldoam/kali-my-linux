@@ -22,7 +22,7 @@ echo "\e[36m[2]\e[0m Arch Linux, Manjaro."
 read DISTRO
 if [ $DISTRO = 1 ]; then
 	sudo apt-get install ruby
-      sudo cp kml /opt/
+      sudo cp -r kml /opt/
       sudo ln -sf /opt/kml/kml.rb /usr/bin/kml
       kml
 else

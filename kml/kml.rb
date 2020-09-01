@@ -140,4 +140,6 @@ def main()
     verification(@user_option, @user_distro)
 end
 
-main()
+while true
+    main()
+end
