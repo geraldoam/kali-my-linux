@@ -1,1 +1,1 @@
-casefile cutycapt dos2unix keepnote metagoofil nipper-ng pipal
+casefile cutycapt dos2unix metagoofil nipper-ng pipal
