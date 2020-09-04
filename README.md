@@ -10,7 +10,7 @@
 	<p align="center">Automatically Install Pentest Tools</p>
 </p>
 
-___
+---
 
 <h4>Running:</h4>
  <ul>
@@ -29,7 +29,7 @@ ___
 <b>Debian, Ubuntu, Linux Mint...</b>
 
 ```sh
-git clone https://github.com/gerald0x01/kali-my-linux; cd kali-my-linux; sudo apt-get install ruby; sudo chmod +x kml.rb
+git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && sudo apt-get install ruby && sudo chmod +x kml.rb
 ```
 
 <br>
@@ -37,14 +37,13 @@ git clone https://github.com/gerald0x01/kali-my-linux; cd kali-my-linux; sudo ap
 <b>Arch Linux, Manjaro...</b>
 
 ```sh
-git clone https://github.com/gerald0x01/kali-my-linux; cd kali-my-linux; sudo pacman -S ruby; sudo chmod +x kml.rb
+git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && sudo pacman -S ruby && sudo chmod +x kml.rb
 ```
 
 ```sh
 # If you don't have yay installed.
 git clone https://aur.archlinux.org/yay.git && sudo chown $USER -R yay/ && cd yay && makepkg -si
 ```
-
 
 <hr>
 
