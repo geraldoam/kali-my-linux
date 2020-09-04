@@ -35,7 +35,7 @@ end
 
 def install(using_distro)
     def debian_based
-        system("sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6 && echo '# Kali Repository (kali-my-linux)' >> /etc/apt/sources.list && echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && apt-get update -m")
+        system("sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6 && echo '# Kali Repository (kali-my-linux)' >> /etc/apt/sources.list && echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list && sudo apt-get update -m")
     end
 
     def arch_based
@@ -43,6 +43,7 @@ def install(using_distro)
     end
 
     using_distro == 'debian_based' ? debian_based() : arch_based()
+    exit
 end
 
 def tools(using_distro)
@@ -52,7 +53,7 @@ def tools(using_distro)
             category = File.basename(category_name, '.txt')
             myHash[category] = File.readlines(category_name).map(&:chomp)
         end
-        using_distro == 'debian_based' ? system("sudo apt-get install -f #{myHash[using_category]}") : system("yay -S #{myHash[using_category]}")
+        using_distro == 'debian_based' ? myHash[using_category].map { |package| system("sudo apt-get install #{package} -y") } : myHash[using_category].map { |package| system("yay -S #{package} -y") }
     end
 
     banner()
@@ -61,18 +62,17 @@ def tools(using_distro)
         "\e[36m[2]\e[39m Eploration.",
         "\e[36m[3]\e[39m Forensic.",
         "\e[36m[4]\e[39m Hardware.\n",
-        "\e[36m[5]\e[39m Maintaining Acess.\n",
-        "\e[36m[6]\e[39m Password Atacks.\n",
-        "\e[36m[7]\e[39m Reporting Tools.\n",
-        "\e[36m[8]\e[39m Reverse Engineering.\n",
-        "\e[36m[9]\e[39m Sniffing and Spoofing.\n",
-        "\e[36m[10]\e[39m Stress Testing.\n",
-        "\e[36m[11]\e[39m Vul Analysis.\n",
-        "\e[36m[12]\e[39m Web.\n",
-        "\e[36m[13]\e[39m Wireless.\n"
+        "\e[36m[5]\e[39m Info Gethering.\n",
+        "\e[36m[6]\e[39m Maintaining Acess.\n",
+        "\e[36m[7]\e[39m Password Atacks.\n",
+        "\e[36m[8]\e[39m Reporting Tools.\n",
+        "\e[36m[9]\e[39m Reverse Engineering.\n",
+        "\e[36m[10]\e[39m Sniffing and Spoofing.\n",
+        "\e[36m[11]\e[39m Stress Testing.\n",
+        "\e[36m[12]\e[39m Vul Analysis.\n",
+        "\e[36m[13]\e[39m Web.\n",
+        "\e[36m[14]\e[39m Wireless.\n"
     ]
-    category_tools.map {|tools| puts tools}
-    print "\n\e[36m>\e[39m "; category_number = gets
 
     json_category = {
         1 =>  'all',
@@ -81,28 +81,33 @@ def tools(using_distro)
         4 =>  'hardware_hacking',
         5 => 'info_gethering',
         6 => 'maintaining_acess',
-        7 => 'reporting_tools',
-        8 => 'reverse_engineering',
-        9 => 'sniffing_and_spoofing',
-        10 => 'stress_testing',
-        11 => 'vul_analysis',
-        12 => 'web',
-        13 => 'wireless_atack'
+        7 => 'password_atacks',
+        8 => 'reporting_tools',
+        9 => 'reverse_engineering',
+        10 => 'sniffing_and_spoofing',
+        11 => 'stress_testing',
+        12 => 'vul_analysis',
+        13 => 'web',
+        14 => 'wireless_atack'
     }
 
-    category_install_tools(json_category[category_number], using_distro)
+    category_tools.map {|tools| puts tools}
+    print "\n\e[36m>\e[39m "
+    category_number = gets
+
+    category_install_tools(json_category[category_number.to_i], using_distro)
+    exit
 end
 
 def uninstall(using_distro)
-    def distro_uninstall
-        def debian_based
-            system("sudo clear && sed -i '/kali/d' /etc/apt/sources.list && sed -i '/Kali/d' /etc/apt/sources.list"); p("Removed.")
-        end
-        def arch_based
-            print "You don't need to remove repository. You're using AUR. (yay)"
-        end
+    def debian_based
+        system("sudo clear && sed -i '/kali/d' /etc/apt/sources.list && sed -i '/Kali/d' /etc/apt/sources.list"); p("Removed.")
+    end
+    def arch_based
+        print "You don't need to remove repository. You're using AUR. (yay)"
     end
     using_distro == 'debian_based' ? debian_based() : arch_based()
+    exit
 end
 
 def verification(option, distro)
@@ -123,10 +128,8 @@ def verification(option, distro)
         end
     end
 
-    using_distro = actual_user_distro(distro)
-
     if [1, 2, 3, 4, 5].include?(distro)
-        distro_based = actual_user_distro(distro)
+        using_distro = actual_user_distro(distro)
     else
         puts "Wrong option. Type the number."
     end
@@ -139,6 +142,4 @@ def main()
     verification(@user_option, @user_distro)
 end
 
-while true
-    main()
-end
+main()
