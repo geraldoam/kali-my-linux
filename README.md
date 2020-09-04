@@ -41,7 +41,7 @@ git clone https://github.com/gerald0x01/kali-my-linux && cd kali-my-linux && sud
 ```
 
 ```sh
-# If you don't have yay installed.
+# If you don't have yay installed
 git clone https://aur.archlinux.org/yay.git && sudo chown $USER -R yay/ && cd yay && makepkg -si
 ```
 
