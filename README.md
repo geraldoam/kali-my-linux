@@ -12,6 +12,13 @@
 
 ---
 
+<h3>To do</h3>
+
+- [ ] Download packages from GitHub.
+- [ ] Running in all distros.
+
+___
+
 <h4>Running:</h4>
  <ul>
   <li>Debian</li>
