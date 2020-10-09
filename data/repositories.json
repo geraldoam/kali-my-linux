@@ -1,0 +1,6 @@
+{
+    "repositories": [
+        {"all": ["armitage", "cisco-auditing-tool"]},
+        {"exploration": [""]}
+    ]
+}
