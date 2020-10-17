@@ -1,1 +1,0 @@
-armitage cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn set shellnoob sqlmap thc-ipv6 yersinia beef-xss

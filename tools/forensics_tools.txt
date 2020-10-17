@@ -1,1 +1,0 @@
-binwalk bulk-extractor chntpw dc3dd ddrescue dumpzilla extundelete foremost galleta guymager p0f pdf-parser pdfid volatility xplico
