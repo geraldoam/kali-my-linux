@@ -1,0 +1,53 @@
+{
+    "exploration_tools": [
+        {
+            "armitage":
+                {
+                    "repository":"https://github.com/rsmudge/armitage",
+                    "commands":["./run.sh"]
+                }
+        },
+        {
+            "backdoor-factory":
+                {
+                    "repository": "https://github.com/secretsquirrel/the-backdoor-factory/",
+                    "commands":["./install.sh"]
+                }
+        },
+        {
+            "beef-xss":
+                {
+                    "repository": "https://gitlab.com/kalilinux/packages/beef-xss",
+                    "commands":["./install"]
+                }
+        },
+        {
+            "commix":
+                {
+                    "repository": "https://github.com/commixproject/commix",
+                    "commands":["python3 setup.py"]
+                }
+        },
+        {
+            "cracle":
+                {
+                    "repository": "https://github.com/mikeryan/crackle",
+                    "commands":["make", "make install"]
+                }
+        },
+        {
+            "exploitdb":
+                {
+                    "repository": "https://github.com/offensive-security/exploitdb",
+                    "commands":["mv exploitdb /opt/", "sudo ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit"]
+                }
+        },
+        {
+            "beef-xss":
+                {
+                    "repository": "https://gitlab.com/kalilinux/packages/beef-xss",
+                    "commands":["./install"]
+                }
+        }
+    ]
+}
